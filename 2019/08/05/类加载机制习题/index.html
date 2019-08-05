@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>魅力小鸡</title>
-  <meta name="keywords" content>
-  <meta name="description" content="魅力小鸡">
+  <title>类加载机制习题 | 魅力小鸡</title>
+  <meta name="keywords" content=" java ">
+  <meta name="description" content="类加载机制习题 | 魅力小鸡">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="在了解了类加载机制后，我们来点真格的！ 题一、public class  Father{    static { System.out.println(“Father静态代码块”);} { System.out.println(&amp;quot;Father普通代码块&amp;quot;); }    public Father() {       System.out.println(&amp;quot;father">
 <meta name="keywords" content="java">
@@ -53,7 +53,7 @@
 </div>
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
     <img class="avatar" src="/img/avatar.png" />
@@ -202,12 +202,60 @@
         </div>
     </div>
 </aside>
-<div class="post index">
+<div class="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-类加载机制习题" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Why-Blog"><span class="toc-text">Why Blog</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么搭建自己的博客"><span class="toc-text">为什么搭建自己的博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自我简介"><span class="toc-text">自我简介</span></a></li></ol></li></ol>
+        <h1 class="article-title">类加载机制习题</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color5">java</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-08-06 00:43:31'>2019-08-05 23:37</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                评论:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#题一、"><span class="toc-text">题一、</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#题二、"><span class="toc-text">题二、</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -220,24 +268,59 @@
     }
 </style>
 </div>
-            <h1 id="Why-Blog"><a href="#Why-Blog" class="headerlink" title="Why Blog"></a>Why Blog</h1><h2 id="为什么搭建自己的博客"><a href="#为什么搭建自己的博客" class="headerlink" title="为什么搭建自己的博客"></a>为什么搭建自己的博客</h2><blockquote>
-<p>其实最开始并没有写博客的习惯，只是每次浏览网页时，总会有意无意的看到xx君建议：程序员最好养成写博客的习惯。高山仰止，景行行止，渣渣的我怀着对大神们的崇拜，梦想着有一天也能够望其项背。从此开始了我的博客之旅。  </p>
-</blockquote>
-<blockquote>
-<p>最开始是在CSDN，博客园这些博客网站上面写，多为demo，而类似的文章又一搜一大把，多多少少是拾人牙慧，因而写的不多，不浪费大家的时间。也想过买个虚拟主机啥的，然后搭建个自己的博客，顺便玩一玩服务器。怎奈在下已不是学生，年龄也不小了，没法买学生服务器，而我又掏钱如割肉，平时超过十块钱的活动我都微微一笑委婉拒绝，断不会去买服务器了。买不了学生服务器，可也不能就不玩啊，求助了不算万能的度娘后，多款 <strong>免费</strong> 的主机勾起了我的兴趣。不过后来用了用，也被我抛弃了。因为这种一般只能用一个月，再用就得发广告做任务，这对我是难以接受的，因此只能平时用来练手。又一番寻寻觅觅，最终还是用了Hexo, 虽然是静态的，但搭建不费事，又是免费的，我也没别的要求，就是没事随便写写，牢骚牢骚。吐槽吐槽（ ）的产品, （ ）的项目经理，（ ）的测试，（ ）的运维、实施人员,（ ）的前同事。</p>
-</blockquote>
-<h2 id="自我简介"><a href="#自我简介" class="headerlink" title="自我简介"></a>自我简介</h2><blockquote>
-<p>名字叫魅力小鸡，是因为我吃鸡的名字就叫魅力小鸡，本想叫五香瓜子的，结果名字被人占了，虽说在五香瓜子后面加个 int或str就可以，但总感觉不是正牌货，而是水货，于是就叫魅力小鸡， Glamour Chick！不过现在基本上不玩游戏了，没什么意思，老是吃不到鸡，莫名其妙就挂掉了，吃鸡我也就开开车，兜兜风，看看风景，佛系，如果你看到一个开车还没事按按喇叭的玩家，可能就是我。 现在没事也就看看书，浏览浏览博客，在一些技术群里交（闲）流（扯），就学习还稍微充实点。</p>
-</blockquote>
-<p><span style="font-size:6;color: grey"><em>评论部分用的gitalk，有些界面可能会报： Validation Failed，不影响评论。</em></span></p>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在了解了类加载机制后，我们来点真格的！</p>
+<h3 id="题一、"><a href="#题一、" class="headerlink" title="题一、"></a>题一、</h3><p>public class  Father{<br>    static { System.out.println(“Father静态代码块”);}</p>
+<pre><code>{ System.out.println(&quot;Father普通代码块&quot;); }
 
-        </article>
-        
-        <p>
-            <a href="javascript:void(0)" class="dashang" onclick="dashangToggle()">赏</a>
-        </p>
-        
-        
+  public Father() {
+      System.out.println(&quot;father 的构造函数&quot;);
+  }</code></pre><p>}<br>class Son extends  Father{<br>    static { System.out.println(“son 静态代码块”);}</p>
+<pre><code>{ System.out.println(&quot;son 代码块&quot;); }
+
+public Son() {
+   System.out.println(&quot;son 的构造函数&quot;);
+}
+
+public static void main(String[] args) {
+    System.out.println(&quot;son 的main方法&quot;);
+    new Son();
+}</code></pre><p>}<br><strong>输出结果：</strong><br>Father静态代码块<br>son 静态代码块<br>son 的main方法<br>Father普通代码块<br>father 的构造函数<br>son 代码块<br>son 的构造函数<br><strong>分析：</strong><br>实际上Java代码编译成字节码之后，是没有构造方法的概念的，只有类初始化方法和对象初始化方法。<br>类初始化方法：编译器会按照其出现顺序，收集类变量的赋值语句、静态代码块，最终组成类初始化方法。类初始化方法一般在类初始化的时候执行。<br>对象初始化方法：编译器会按照其出现顺序，收集成员变量的赋值语句、普通代码块，最后收集构造函数的代码，最终组成对象初始化方法。对象初始化方法一般在实例化类对象的时候执行。</p>
+<p>（我直接把上章的粘在这）<br>类初始化时机：只有当对类的主动使用的时候才会导致类的初始化，类的主动使用包括以下六种：  </p>
+<ol>
+<li>创建类的实例时（new、反射、反序列化）;</li>
+<li>访问某个类或接口的静态变量，或者对该静态变量赋值;</li>
+<li>调用类的静态方法;</li>
+<li>反射（如 Class.forName(“com.shengsiyuan.Test”)）;</li>
+<li>初始化某个类的子类，则这个父类先被初始化;</li>
+<li>Java虚拟机启动时被标明为启动类的类（包含main()方法的那个类），直接使用 java.exe命令来运行某个主类;</li>
+</ol>
+<p>首先，初始化有main方法的主类，即Son类，Son的父类还未初始化，所以先初始化Father类，输出：Father静态代码块和son 静态代码块。<br>然后，执行main方法中的输出：son 的main方法。<br>接着到了new Son()，进行对象初始化。还是先输出Father的对象初始化方法，按顺序为：Father普通代码块  father 的构造函数，接着输出Son的： son 代码块  son 的构造函数  </p>
+<h3 id="题二、"><a href="#题二、" class="headerlink" title="题二、"></a>题二、</h3><p>class Singleton{<br>    private static Singleton singleton = new Singleton();<br>    public static int value1;<br>    public static int value2 = 0;<br>    static{ System.out.println(“静态方法块”);}<br>    private Singleton(){<br>        value1++;<br>        value2++;<br>        System.out.println(“构造方法”);<br>    }<br>    { System.out.println(“普通方法块”); }</p>
+<pre><code>public static Singleton getInstance(){
+    System.out.println(&quot;getInstance方法&quot;);
+    return singleton;
+}
+public static void main(String[] args) {
+    Singleton singleton = Singleton.getInstance();
+    System.out.println(&quot;Singleton value1:&quot; + singleton.value1);
+    System.out.println(&quot;Singleton value2:&quot; + singleton.value2);
+}</code></pre><p>}<br><strong>输出结果：</strong><br>普通方法块<br>构造方法<br>静态方法块<br>getInstance方法<br>Singleton value1:1<br>Singleton value2:0<br><strong>分析：</strong><br>根据main方法找到Single类，在准备阶段，Singleton类中的singleton，value1，value2分别为 null 0 0。<br>初始化阶段，先执行private static Singleton singleton = new Singleton()，这条语句触发了对象初始化方法，输出：普通方法块，构造方法，同时value1，value2都变成了1。<br>接下来两句public static int value1; public static int value2 = 0; value1未赋值，value2赋值后，初始化为0，<br>然后执行Singleton singleton = Singleton.getInstance()，输出：getInstance方法<br>最后输出：Singleton value1:1  Singleton value2:0</p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，可以在下面评论区评论，也可以邮件至 18094277275@163.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a href="javascript:void(0)" class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+
+
     <div id="comments"></div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
 
@@ -257,6 +340,13 @@
         gitalk.render('comments')
     })
 </script>
+
+
+
+
+    
+
+
 
 
     </div>
