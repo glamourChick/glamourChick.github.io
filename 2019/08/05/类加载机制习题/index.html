@@ -6,18 +6,18 @@
   <meta name="keywords" content=" java ">
   <meta name="description" content="类加载机制习题 | 魅力小鸡">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="在了解了类加载机制后，我们来点真格的！ 题一、public class  Father{    static { System.out.println(“Father静态代码块”);} { System.out.println(&amp;quot;Father普通代码块&amp;quot;); }    public Father() {       System.out.println(&amp;quot;father">
-<meta name="keywords" content="java">
+<meta name="description" content="LinkedList是基于链表的数据结构。 public class LinkedList extends AbstractSequentialList implements List, Deque, Cloneable, java.io.Serializable 继承：&amp;emsp;&amp;emsp;LinkedList 继承了AbstractSequentialList, 而AbstractSeque">
+<meta name="keywords" content="java，linkedList">
 <meta property="og:type" content="article">
-<meta property="og:title" content="类加载机制习题">
-<meta property="og:url" content="http://yoursite.com/2019/08/05/类加载机制习题/index.html">
+<meta property="og:title" content="LinkedList源码">
+<meta property="og:url" content="http://yoursite.com/2019/08/07/linkedlist/index.html">
 <meta property="og:site_name" content="魅力小鸡">
-<meta property="og:description" content="在了解了类加载机制后，我们来点真格的！ 题一、public class  Father{    static { System.out.println(“Father静态代码块”);} { System.out.println(&amp;quot;Father普通代码块&amp;quot;); }    public Father() {       System.out.println(&amp;quot;father">
+<meta property="og:description" content="LinkedList是基于链表的数据结构。 public class LinkedList extends AbstractSequentialList implements List, Deque, Cloneable, java.io.Serializable 继承：&amp;emsp;&amp;emsp;LinkedList 继承了AbstractSequentialList, 而AbstractSeque">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-05T16:43:31.804Z">
+<meta property="og:updated_time" content="2019-08-07T16:20:26.571Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="类加载机制习题">
-<meta name="twitter:description" content="在了解了类加载机制后，我们来点真格的！ 题一、public class  Father{    static { System.out.println(“Father静态代码块”);} { System.out.println(&amp;quot;Father普通代码块&amp;quot;); }    public Father() {       System.out.println(&amp;quot;father">
+<meta name="twitter:title" content="LinkedList源码">
+<meta name="twitter:description" content="LinkedList是基于链表的数据结构。 public class LinkedList extends AbstractSequentialList implements List, Deque, Cloneable, java.io.Serializable 继承：&amp;emsp;&amp;emsp;LinkedList 继承了AbstractSequentialList, 而AbstractSeque">
 
 
 <link rel="icon" href="/img/avatar.png">
@@ -110,7 +110,7 @@
 
 
 <ul>
-    <li><div class="all active">全部文章<small>(3)</small></div></li>
+    <li><div class="all active">全部文章<small>(4)</small></div></li>
     
 </ul>
 <div class="left-bottom">
@@ -122,7 +122,7 @@
     </div>
     <div></div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="3">
+<input type="hidden" id="yelog_site_posts_number" value="4">
 
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
@@ -162,6 +162,10 @@
         <a href="javascript:" class="color5">java</a>
     </li>
     
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">java，linkedList</a>
+    </li>
+    
     <div class="clearfix"></div>
 </div>
 
@@ -190,6 +194,14 @@
            data-author="" >
             <span class="post-title" title="类加载机制习题">类加载机制习题</span>
             <span class="post-date" title="2019-08-05 23:37:45">2019/08/05</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/07/linkedlist/"
+           data-tag="java，linkedList"
+           data-author="" >
+            <span class="post-title" title="LinkedList源码">LinkedList源码</span>
+            <span class="post-date" title="2019-08-07 22:12:45">2019/08/07</span>
         </a>
         
     </nav>
@@ -222,7 +234,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-08-06 00:43:31'>2019-08-05 23:37</time>
+        创建时间:<time class="date" title='更新时间: 2019-08-08 00:06:40'>2019-08-05 23:37</time>
         
     </div>
     <div class="article-meta">
@@ -255,7 +267,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#题一、"><span class="toc-text">题一、</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#题二、"><span class="toc-text">题二、</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#题一"><span class="toc-text">题一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#题二"><span class="toc-text">题二</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -271,22 +283,28 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>在了解了类加载机制后，我们来点真格的！</p>
-<h3 id="题一、"><a href="#题一、" class="headerlink" title="题一、"></a>题一、</h3><p>public class  Father{<br>    static { System.out.println(“Father静态代码块”);}</p>
-<pre><code>{ System.out.println(&quot;Father普通代码块&quot;); }
+<h3 id="题一"><a href="#题一" class="headerlink" title="题一"></a>题一</h3><p>  public class  Father{</p>
+<pre><code>static { System.out.println(&quot;Father静态代码块&quot;);}
 
-  public Father() {
-      System.out.println(&quot;father 的构造函数&quot;);
-  }</code></pre><p>}<br>class Son extends  Father{<br>    static { System.out.println(“son 静态代码块”);}</p>
-<pre><code>{ System.out.println(&quot;son 代码块&quot;); }
+   { System.out.println(&quot;Father普通代码块&quot;); }
 
-public Son() {
-   System.out.println(&quot;son 的构造函数&quot;);
-}
+   public Father() {
+       System.out.println(&quot;father 的构造函数&quot;);
+   }</code></pre><p>  }</p>
+<p>  class Son extends  Father{</p>
+<pre><code>static { System.out.println(&quot;son 静态代码块&quot;);}
 
-public static void main(String[] args) {
-    System.out.println(&quot;son 的main方法&quot;);
-    new Son();
-}</code></pre><p>}<br><strong>输出结果：</strong><br>Father静态代码块<br>son 静态代码块<br>son 的main方法<br>Father普通代码块<br>father 的构造函数<br>son 代码块<br>son 的构造函数<br><strong>分析：</strong><br>实际上Java代码编译成字节码之后，是没有构造方法的概念的，只有类初始化方法和对象初始化方法。<br>类初始化方法：编译器会按照其出现顺序，收集类变量的赋值语句、静态代码块，最终组成类初始化方法。类初始化方法一般在类初始化的时候执行。<br>对象初始化方法：编译器会按照其出现顺序，收集成员变量的赋值语句、普通代码块，最后收集构造函数的代码，最终组成对象初始化方法。对象初始化方法一般在实例化类对象的时候执行。</p>
+   { System.out.println(&quot;son 代码块&quot;); }
+
+   public Son() {
+      System.out.println(&quot;son 的构造函数&quot;);
+   }
+
+   public static void main(String[] args) {
+       System.out.println(&quot;son 的main方法&quot;);
+       new Son();
+   }</code></pre><p>  }</p>
+<p><strong>输出结果：</strong><br>Father静态代码块<br>son 静态代码块<br>son 的main方法<br>Father普通代码块<br>father 的构造函数<br>son 代码块<br>son 的构造函数<br><strong>分析：</strong><br>&emsp;&emsp;实际上Java代码编译成字节码之后，是没有构造方法的概念的，只有类初始化方法和对象初始化方法。<br>类初始化方法：编译器会按照其出现顺序，收集类变量的赋值语句、静态代码块，最终组成类初始化方法。类初始化方法一般在类初始化的时候执行。<br>对象初始化方法：编译器会按照其出现顺序，收集成员变量的赋值语句、普通代码块，最后收集构造函数的代码，最终组成对象初始化方法。对象初始化方法一般在实例化类对象的时候执行。</p>
 <p>（我直接把上章的粘在这）<br>类初始化时机：只有当对类的主动使用的时候才会导致类的初始化，类的主动使用包括以下六种：  </p>
 <ol>
 <li>创建类的实例时（new、反射、反序列化）;</li>
@@ -296,17 +314,31 @@ public static void main(String[] args) {
 <li>初始化某个类的子类，则这个父类先被初始化;</li>
 <li>Java虚拟机启动时被标明为启动类的类（包含main()方法的那个类），直接使用 java.exe命令来运行某个主类;</li>
 </ol>
-<p>首先，初始化有main方法的主类，即Son类，Son的父类还未初始化，所以先初始化Father类，输出：Father静态代码块和son 静态代码块。<br>然后，执行main方法中的输出：son 的main方法。<br>接着到了new Son()，进行对象初始化。还是先输出Father的对象初始化方法，按顺序为：Father普通代码块  father 的构造函数，接着输出Son的： son 代码块  son 的构造函数  </p>
-<h3 id="题二、"><a href="#题二、" class="headerlink" title="题二、"></a>题二、</h3><p>class Singleton{<br>    private static Singleton singleton = new Singleton();<br>    public static int value1;<br>    public static int value2 = 0;<br>    static{ System.out.println(“静态方法块”);}<br>    private Singleton(){<br>        value1++;<br>        value2++;<br>        System.out.println(“构造方法”);<br>    }<br>    { System.out.println(“普通方法块”); }</p>
-<pre><code>public static Singleton getInstance(){
-    System.out.println(&quot;getInstance方法&quot;);
-    return singleton;
+<p>&emsp;&emsp;首先，初始化有main方法的主类，即Son类，Son的父类还未初始化，所以先初始化Father类，输出：Father静态代码块和son 静态代码块。<br>&emsp;&emsp;然后，执行main方法中的输出：son 的main方法。<br>&emsp;&emsp;接着到了new Son()，进行对象初始化。还是先输出Father的对象初始化方法，按顺序为：Father普通代码块  father 的构造函数，接着输出Son的： son 代码块  son 的构造函数  </p>
+<h3 id="题二"><a href="#题二" class="headerlink" title="题二"></a>题二</h3><p>  class Singleton{</p>
+<pre><code>private static Singleton singleton = new Singleton();
+public static int value1;
+public static int value2 = 0;  
+
+static{ System.out.println(&quot;静态方法块&quot;);} 
+
+private Singleton(){
+    value1++;
+    value2++;
+    System.out.println(&quot;构造方法&quot;);
 }
-public static void main(String[] args) {
-    Singleton singleton = Singleton.getInstance();
-    System.out.println(&quot;Singleton value1:&quot; + singleton.value1);
-    System.out.println(&quot;Singleton value2:&quot; + singleton.value2);
-}</code></pre><p>}<br><strong>输出结果：</strong><br>普通方法块<br>构造方法<br>静态方法块<br>getInstance方法<br>Singleton value1:1<br>Singleton value2:0<br><strong>分析：</strong><br>根据main方法找到Single类，在准备阶段，Singleton类中的singleton，value1，value2分别为 null 0 0。<br>初始化阶段，先执行private static Singleton singleton = new Singleton()，这条语句触发了对象初始化方法，输出：普通方法块，构造方法，同时value1，value2都变成了1。<br>接下来两句public static int value1; public static int value2 = 0; value1未赋值，value2赋值后，初始化为0，<br>然后执行Singleton singleton = Singleton.getInstance()，输出：getInstance方法<br>最后输出：Singleton value1:1  Singleton value2:0</p>
+
+{ System.out.println(&quot;普通方法块&quot;); }    
+public static Singleton getInstance(){
+       System.out.println(&quot;getInstance方法&quot;);
+       return singleton;
+   }
+
+   public static void main(String[] args) {
+       Singleton singleton = Singleton.getInstance();
+       System.out.println(&quot;Singleton value1:&quot; + singleton.value1);
+       System.out.println(&quot;Singleton value2:&quot; + singleton.value2);
+   }</code></pre><p>  }<br><strong>输出结果：</strong><br>普通方法块<br>构造方法<br>静态方法块<br>getInstance方法<br>Singleton value1:1<br>Singleton value2:0<br><strong>分析：</strong><br>&emsp;&emsp;根据main方法找到Single类，在准备阶段，Singleton类中的singleton，value1，value2分别为 null 0 0。<br>&emsp;&emsp;初始化阶段，先执行private static Singleton singleton = new Singleton()，这条语句触发了对象初始化方法，输出：普通方法块，构造方法，同时value1，value2都变成了1。<br>&emsp;&emsp;接下来两句public static int value1; public static int value2 = 0; value1未赋值，value2赋值后，初始化为0，<br>&emsp;&emsp;然后执行Singleton singleton = Singleton.getInstance()，输出：getInstance方法<br>&emsp;&emsp;最后输出：Singleton value1:1  Singleton value2:0</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，可以在下面评论区评论，也可以邮件至 18094277275@163.com </span>
@@ -395,7 +427,7 @@ public static void main(String[] args) {
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#程序人生','#java',],
+            'data': ['#程序人生','#java','#java，linkedList',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
