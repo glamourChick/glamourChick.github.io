@@ -2,22 +2,22 @@
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>LinkedList源码 | 魅力小鸡</title>
-  <meta name="keywords" content=" java，linkedList ">
-  <meta name="description" content="LinkedList源码 | 魅力小鸡">
+  <title>LinkedList源码简析 | 魅力小鸡</title>
+  <meta name="keywords" content=" java  linkedList ">
+  <meta name="description" content="LinkedList源码简析 | 魅力小鸡">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="LinkedList是基于链表的数据结构。 public class LinkedList extends AbstractSequentialList implements List, Deque, Cloneable, java.io.Serializable 继承：&amp;emsp;&amp;emsp;LinkedList 继承了AbstractSequentialList, 而AbstractSeque">
-<meta name="keywords" content="java，linkedList">
+<meta name="description" content="ArrayList是一个动态数组，非线程安全。 public class ArrayList extends AbstractList implements List, RandomAccess, Cloneable, java.io.Serializable 继承AbstractList： 实现List接口：支持集合的一般操作。提供了相关的添加、删除、修改、遍历等功能。这里有个有意思的地方：Ab">
+<meta name="keywords" content="ArrayList 源码">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LinkedList源码">
-<meta property="og:url" content="http://yoursite.com/2019/08/07/linkedlist/index.html">
+<meta property="og:title" content="ArrayList源码解析">
+<meta property="og:url" content="http://yoursite.com/2019/08/11/ArrayList源码简析/index.html">
 <meta property="og:site_name" content="魅力小鸡">
-<meta property="og:description" content="LinkedList是基于链表的数据结构。 public class LinkedList extends AbstractSequentialList implements List, Deque, Cloneable, java.io.Serializable 继承：&amp;emsp;&amp;emsp;LinkedList 继承了AbstractSequentialList, 而AbstractSeque">
+<meta property="og:description" content="ArrayList是一个动态数组，非线程安全。 public class ArrayList extends AbstractList implements List, RandomAccess, Cloneable, java.io.Serializable 继承AbstractList： 实现List接口：支持集合的一般操作。提供了相关的添加、删除、修改、遍历等功能。这里有个有意思的地方：Ab">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-07T16:20:26.571Z">
+<meta property="og:updated_time" content="2019-08-11T14:44:50.463Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LinkedList源码">
-<meta name="twitter:description" content="LinkedList是基于链表的数据结构。 public class LinkedList extends AbstractSequentialList implements List, Deque, Cloneable, java.io.Serializable 继承：&amp;emsp;&amp;emsp;LinkedList 继承了AbstractSequentialList, 而AbstractSeque">
+<meta name="twitter:title" content="ArrayList源码解析">
+<meta name="twitter:description" content="ArrayList是一个动态数组，非线程安全。 public class ArrayList extends AbstractList implements List, RandomAccess, Cloneable, java.io.Serializable 继承AbstractList： 实现List接口：支持集合的一般操作。提供了相关的添加、删除、修改、遍历等功能。这里有个有意思的地方：Ab">
 
 
 <link rel="icon" href="/img/avatar.png">
@@ -110,7 +110,7 @@
 
 
 <ul>
-    <li><div class="all active">全部文章<small>(4)</small></div></li>
+    <li><div class="all active">全部文章<small>(5)</small></div></li>
     
 </ul>
 <div class="left-bottom">
@@ -122,7 +122,7 @@
     </div>
     <div></div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="4">
+<input type="hidden" id="yelog_site_posts_number" value="5">
 
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
@@ -163,7 +163,11 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">java，linkedList</a>
+        <a href="javascript:" class="color3">ArrayList 源码</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">java  linkedList</a>
     </li>
     
     <div class="clearfix"></div>
@@ -197,10 +201,18 @@
         </a>
         
         <a  class=""
-           href="/2019/08/07/linkedlist/"
-           data-tag="java，linkedList"
+           href="/2019/08/11/ArrayList源码简析/"
+           data-tag="ArrayList 源码"
            data-author="" >
-            <span class="post-title" title="LinkedList源码">LinkedList源码</span>
+            <span class="post-title" title="ArrayList源码解析">ArrayList源码解析</span>
+            <span class="post-date" title="2019-08-11 22:33:45">2019/08/11</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/07/Linkedlist源码简析/"
+           data-tag="java  linkedList"
+           data-author="" >
+            <span class="post-title" title="LinkedList源码简析">LinkedList源码简析</span>
             <span class="post-date" title="2019-08-07 22:12:45">2019/08/07</span>
         </a>
         
@@ -216,9 +228,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-linkedlist" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Linkedlist源码简析" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">LinkedList源码</h1>
+        <h1 class="article-title">LinkedList源码简析</h1>
     
     <div class="article-meta">
         
@@ -227,14 +239,14 @@
         
         <span class="tag">
             
-            <a href="javascript:" class="color1">java，linkedList</a>
+            <a href="javascript:" class="color2">java  linkedList</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-08-08 00:20:26'>2019-08-07 22:12</time>
+        创建时间:<time class="date" title='更新时间: 2019-08-10 00:11:17'>2019-08-07 22:12</time>
         
     </div>
     <div class="article-meta">
@@ -282,14 +294,14 @@
 </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>LinkedList是基于链表的数据结构。</p>
+        <p>LinkedList是基于链表的数据结构，非线程安全。</p>
 <p>public class LinkedList<e> extends AbstractSequentialList<e> implements List<e>, Deque<e>, Cloneable, java.io.Serializable</e></e></e></e></p>
-<p><strong>继承：</strong><br>&emsp;&emsp;LinkedList 继承了AbstractSequentialList, 而AbstractSequentialList继承了AbstractList（ArrayList也继承它）, AbstractList支持随机访问，可以随意访问该数据结构中的任意一个节点，如vector可以通过[]操作符，直接访问[n]，不需要遍历其他的节点。<br>但是AbstractSequentialList仅支持按次序访问,要想访问第n个元素，只能从第一个开始,一个节点一个节点的往下找，因而随机访问效率低。</p>
+<p><strong>继承：</strong><br>&emsp;&emsp;LinkedList 继承了AbstractSequentialList, 而AbstractSequentialList继承了AbstractList（ArrayList也继承它）, AbstractList支持随机访问, 可以随意访问该数据结构中的任意一个节点, 如vector可以通过[]操作符, 直接访问[n], 不需要遍历其他的节点。<br>但是AbstractSequentialList仅支持按次序访问,要想访问第n个元素, 只能从第一个开始,一个节点一个节点的往下找, 因而随机访问效率低。</p>
 <p><strong>接口：</strong><br>&emsp;&emsp;实现List接口：支持集合的一般操作。提供了相关的添加、删除、修改、遍历等功能。<br>&emsp;&emsp;实现Deque （Double ended queue）接口： 可用作队列或双端队列<br>&emsp;&emsp;实现Cloneable、Serializable接口：支持克隆和序列化。</p>
-<p>LinkedList底层维护着双向链表，每个结点都有一个前驱和后继结点：<br>    private static class Node<e> {</e></p>
+<p>LinkedList底层维护着双向链表, 每个结点都有一个前驱和后继结点：<br>    private static class Node<e> {</e></p>
 <pre><code>    E item; // 存储节点值
-    Node&lt;E&gt; next; // 后继，指向下一个节点
-    Node&lt;E&gt; prev; // 前驱，指向前一个节点
+    Node&lt;E&gt; next; // 后继, 指向下一个节点
+    Node&lt;E&gt; prev; // 前驱, 指向前一个节点
     Node(Node&lt;E&gt; prev, E element, Node&lt;E&gt; next) {
         this.item = element;
         this.next = next;
@@ -309,30 +321,30 @@ public LinkedList(Collection&lt;? extends E&gt; c) {
 <li><a href="#f3">public void addFirst(E e)// 调用linkFirst</a></li>
 <li><a href="#f4">public void addLast(E e)// 调用linkLast</a></li>
 <li><a href="#f5">void linkBefore(E e, Node<e> succ)// 在非空节点succ前插入节点e</e></a></li>
-<li><a href="#f6">private E unlinkFirst(Node<e> f)//释放非空的首节点f，并返回值</e></a></li>
-<li><a href="#f7">private E unlinkLast(Node<e> l)// 释放非空的尾节点l，并返回值</e></a></li>
+<li><a href="#f6">private E unlinkFirst(Node<e> f)//释放非空的首节点f, 并返回值</e></a></li>
+<li><a href="#f7">private E unlinkLast(Node<e> l)// 释放非空的尾节点l, 并返回值</e></a></li>
 <li><a href="#f8">public E removeFirst()// 从链表中移除头结点并返回其值</a></li>
 <li><a href="#f9">public E removeLast()// 从链表中移除尾结点并返回其值</a></li>
 <li><a href="#f10">E unlink(Node<e> x)// 释放非空节点x</e></a></li>
 <li><a href="#f11">public E getFirst()//返回链表中的头结点的值</a></li>
-<li><a href="#f12">public E getLast()//返回链表中尾结点的值，和上面的类似</a></li>
-<li><a href="#f13">public int indexOf(Object o)//返回链表中参数第一次出现的索引位置，没有就返回-1</a></li>
-<li><a href="#f14">public boolean contains(Object o)// 判断链表是否包含参数，包含为true</a></li>
+<li><a href="#f12">public E getLast()//返回链表中尾结点的值, 和上面的类似</a></li>
+<li><a href="#f13">public int indexOf(Object o)//返回链表中参数第一次出现的索引位置, 没有就返回-1</a></li>
+<li><a href="#f14">public boolean contains(Object o)// 判断链表是否包含参数, 包含为true</a></li>
 <li><a href="#f15">public E remove(int index)//根据索引进行删除</a></li>
-<li><a href="#f16">public boolean remove(Object o)//从列表中移除指定元素的第一个匹配项并返回true，如果列表不包含该参数，列表不变，返回false</a></li>
-<li><a href="#f17">public boolean addAll(Collection&lt;? extends E&gt; c)// addAll有两种方法，一个传index,一个不传</a></li>
+<li><a href="#f16">public boolean remove(Object o)//从列表中移除指定元素的第一个匹配项并返回true, 如果列表不包含该参数, 列表不变, 返回false</a></li>
+<li><a href="#f17">public boolean addAll(Collection&lt;? extends E&gt; c)// addAll有两种方法, 一个传index,一个不传</a></li>
 <li><a href="#f18">public boolean addAll(int index, Collection&lt;? extends E&gt; c)</a></li>
-<li><a href="#f19">public void clear()//所有表中所有元素，此列表为空</a></li>
+<li><a href="#f19">public void clear()//所有表中所有元素, 此列表为空</a></li>
 <li><a href="#f20">Node<e> node(int index)//返回指点索引的非空节点</e></a></li>
 <li><a href="#f21">public E get(int index)//返回指定索引节点的值</a></li>
-<li><a href="#f22">public E set(int index, E element)//替换指定位置节点的值，返回旧值</a></li>
+<li><a href="#f22">public E set(int index, E element)//替换指定位置节点的值, 返回旧值</a></li>
 <li><a href="#f23">public void add(int index, E element)// 指定位置新增节点</a></li>
 <li><a href="#f24">public E peek()// 获取头节点的值</a></li>
-<li><a href="#f25">public E poll()// 获取头节点的值，同时删除该头节点</a></li>
+<li><a href="#f25">public E poll()// 获取头节点的值, 同时删除该头节点</a></li>
 <li><a href="#f26">public void push(E e)//入栈</a></li>
 <li><a href="#f27">public E pop()//出栈</a></li>
 <li><a href="#f28">public Object[] toArray() //转为数组</a></li>
-<li><a href="#f29">public <t> T[] toArray(T[] a)//转为数组，传入T类型的数组，返回T类型的数组</t></a></li>
+<li><a href="#f29">public <t> T[] toArray(T[] a)//转为数组, 传入T类型的数组, 返回T类型的数组</t></a></li>
 </ol>
 <p>// <span id="f1">表头添加元素</span><br>private void linkFirst(E e) {</p>
 <pre><code>final Node&lt;E&gt; f = first;// 用一个常量存储旧的头结点
@@ -360,34 +372,34 @@ modCount++;</code></pre><p>}</p>
 final Node&lt;E&gt; newNode = new Node&lt;&gt;(pred, e, succ);// 新建node, 前驱为pred, 后继为succ, 值为e
 succ.prev = newNode;// 将succ的前驱设置为newNode
 if (pred == null)
-    first = newNode;// 如果pred为null,则表明原succ为头节点，设置newNoode为头节点
+    first = newNode;// 如果pred为null,则表明原succ为头节点, 设置newNoode为头节点
 else
     pred.next = newNode;// 否则设置pred的后继为newNode
 size++;// 长度增加
 modCount++;</code></pre><p>}</p>
-<p>//<span id="f6">释放非空的首节点f，并返回值</span><br>private E unlinkFirst(Node<e> f) {</e></p>
+<p>//<span id="f6">释放非空的首节点f, 并返回值</span><br>private E unlinkFirst(Node<e> f) {</e></p>
 <pre><code>final E element = f.item;// 常量element存f的值
 final Node&lt;E&gt; next = f.next;// 常量节点next 存f的后继
 f.item = null;// f节点的值设置为null
 f.next = null;// 切断f与后继节点的关联
 first = next;// 头节点改为f的后继节点
 if (next == null)
-    last = null;//如果f后继节点为null,说明该表只有一个元素，f既是头节点，也是尾结点，f将要被移除，所以last也要设置为null
+    last = null;//如果f后继节点为null,说明该表只有一个元素, f既是头节点, 也是尾结点, f将要被移除, 所以last也要设置为null
 else
-    next.prev = null;//否则，将新的头节点前驱设置为null
+    next.prev = null;//否则, 将新的头节点前驱设置为null
 size--;
 modCount++;
 return element;// 返回被释放的节点的值</code></pre><p>}</p>
-<p>// <span id="f7">释放非空的尾节点l，并返回值</span><br>private E unlinkLast(Node<e> l) {</e></p>
+<p>// <span id="f7">释放非空的尾节点l, 并返回值</span><br>private E unlinkLast(Node<e> l) {</e></p>
 <pre><code>final E element = l.item;// 常量element存l的值
 final Node&lt;E&gt; prev = l.prev;// 常量节点prev 存l的前驱
 l.item = null;// 清除l节点的值
 l.prev = null; // 切断l与前驱节点的关联
 last = prev;// 尾节点改为l的前驱节点
 if (prev == null)
-    first = null;//如果l前驱节点为null，说明该表只有一个元素，l既是头节点，也是尾结点，l将要被移除，所以last也要设置为null
+    first = null;//如果l前驱节点为null, 说明该表只有一个元素, l既是头节点, 也是尾结点, l将要被移除, 所以last也要设置为null
 else
-    prev.next = null;//否则，将新的尾节点后继设置为null
+    prev.next = null;//否则, 将新的尾节点后继设置为null
 size--;
 modCount++;
 return element;// 返回被释放的节点的值</code></pre><p>}</p>
@@ -406,18 +418,18 @@ final E element = x.item;
 final Node&lt;E&gt; next = x.next;
 final Node&lt;E&gt; prev = x.prev; 
 if (prev == null) {
-    first = next; // 如果x前驱为空，则x为头结点，设置x的下一个节点为first
+    first = next; // 如果x前驱为空, 则x为头结点, 设置x的下一个节点为first
 } else {
     prev.next = next;// 否则设置x上一个节点的后继为x下一个节点
     x.prev = null;// 并且设置x的前驱为null
 }
 if (next == null) {
-    last = prev;// 如果x后继为空，则表明x为尾节点，将x的前一个节点设置为last
+    last = prev;// 如果x后继为空, 则表明x为尾节点, 将x的前一个节点设置为last
 } else {
     next.prev = prev;// 否则 x下一个节点的前驱设置为x的上一个节点
     x.next = null;// 并把x的后继置null
 }
-//此时的x就是个孤家寡人，它的前驱后继都为null，它的上下节点进行了关联。接着再处理x的值
+//此时的x就是个孤家寡人, 它的前驱后继都为null, 它的上下节点进行了关联。接着再处理x的值
 x.item = null;// x的值置null
 size--;//链表长度减1
 modCount++;
@@ -425,17 +437,17 @@ return element;// 返回删除的节点</code></pre><p>}</p>
 <p>//<span id="f11">返回链表中的头结点的值</span><br>public E getFirst() {</p>
 <pre><code>final Node&lt;E&gt; f = first;
 if (f == null)
-    throw new NoSuchElementException();//如果不存在，则抛异常
+    throw new NoSuchElementException();//如果不存在, 则抛异常
 return f.item;</code></pre><p>}</p>
-<p>//<span id="f12">返回链表中尾结点的值，和上面的类似</span><br>public E getLast() {</p>
+<p>//<span id="f12">返回链表中尾结点的值, 和上面的类似</span><br>public E getLast() {</p>
 <pre><code>final Node&lt;E&gt; l = last;
 if (l == null)
     throw new NoSuchElementException();
 return l.item;</code></pre><p>}</p>
-<p>//<span id="f13">返回链表中参数第一次出现的索引位置，没有就返回-1</span><br>public int indexOf(Object o) {</p>
+<p>//<span id="f13">返回链表中参数第一次出现的索引位置, 没有就返回-1</span><br>public int indexOf(Object o) {</p>
 <pre><code>int index = 0;
 //如果参数o为null,则返回值为null的节点的索引
-//o不为null，则返回值与o相匹配的节点的索引
+//o不为null, 则返回值与o相匹配的节点的索引
 // 如没匹配到则返回-1
 if (o == null) {
     for (Node&lt;E&gt; x = first; x != null; x = x.next) {
@@ -450,10 +462,10 @@ if (o == null) {
         index++;
     }
 }
-return -1;</code></pre><p>}<br>// <span id="f14">判断链表是否包含参数，包含为true</span><br>public boolean contains(Object o) {<br>&emsp;&emsp;return indexOf(o) != -1;<br>}</p>
+return -1;</code></pre><p>}<br>// <span id="f14">判断链表是否包含参数, 包含为true</span><br>public boolean contains(Object o) {<br>&emsp;&emsp;return indexOf(o) != -1;<br>}</p>
 <p>//<span id="f15">根据索引进行删除</span><br>public E remove(int index) {</p>
 <pre><code>checkElementIndex(index);
-return unlink(node(index));</code></pre><p>}<br>//<span id="f16">从列表中移除指定元素的第一个匹配项并返回true，如果列表不包含该参数，列表不变，返回false</span><br>public boolean remove(Object o) {</p>
+return unlink(node(index));</code></pre><p>}<br>//<span id="f16">从列表中移除指定元素的第一个匹配项并返回true, 如果列表不包含该参数, 列表不变, 返回false</span><br>public boolean remove(Object o) {</p>
 <pre><code>if (o == null) {
     for (Node&lt;E&gt; x = first; x != null; x = x.next) {
         if (x.item == null) {
@@ -469,44 +481,44 @@ return unlink(node(index));</code></pre><p>}<br>//<span id="f16">从列表中移
         }
     }
 }
-return false;</code></pre><p>}<br>// <span id="f17">addAll有两种方法，一个传index,一个不传</span><br>public boolean addAll(Collection&lt;? extends E&gt; c) {<br>&emsp;&emsp;return addAll(size, c);<br>}<br><span id="f18">不传index</span><br>public boolean addAll(int index, Collection&lt;? extends E&gt; c) {</p>
-<pre><code>checkPositionIndex(index);// 判断index是否越界，越界则抛出异常，0 &lt;= index &lt;= size
+return false;</code></pre><p>}<br>// <span id="f17">addAll有两种方法, 一个传index,一个不传</span><br>public boolean addAll(Collection&lt;? extends E&gt; c) {<br>&emsp;&emsp;return addAll(size, c);<br>}<br><span id="f18">不传index</span><br>public boolean addAll(int index, Collection&lt;? extends E&gt; c) {</p>
+<pre><code>checkPositionIndex(index);// 判断index是否越界, 越界则抛出异常, 0 &lt;= index &lt;= size
 Object[] a = c.toArray(); // 将集合参数c转为数组
 int numNew = a.length;// 获取其长度
 if (numNew == 0)
-    return false;//如果传进来的数组没有值，则返回false
-Node&lt;E&gt; pred, succ; //新建前驱后继节点，前驱：precursor,后继: succeed
-if (index == size) {//若在表尾添加,则前驱为原尾结点，后继为null
+    return false;//如果传进来的数组没有值, 则返回false
+Node&lt;E&gt; pred, succ; //新建前驱后继节点, 前驱：precursor,后继: succeed
+if (index == size) {//若在表尾添加,则前驱为原尾结点, 后继为null
     succ = null;
     pred = last;
-} else { //否则，前驱为index上一个节点,后继为index节点
+} else { //否则, 前驱为index上一个节点,后继为index节点
     succ = node(index);
     pred = succ.prev;
 }
 //循环插入参数集合元素
 for (Object o : a) {
     @SuppressWarnings(&quot;unchecked&quot;) E e = (E) o;
-    //新建一个有前驱和值的节点，此时newNode的前一个节点确定了，但是newNode前一个节点还未设置后继
+    //新建一个有前驱和值的节点, 此时newNode的前一个节点确定了, 但是newNode前一个节点还未设置后继
     Node&lt;E&gt; newNode = new Node&lt;&gt;(pred, e, null);
     if (pred == null)
-        first = newNode;// 前驱pred为null，表明在头节点前插入，设置newNode为新的头节点
+        first = newNode;// 前驱pred为null, 表明在头节点前插入, 设置newNode为新的头节点
     else
-        pred.next = newNode;//否则设置pred的后继为当前节点，即newNode前一个节点设置了后继
+        pred.next = newNode;//否则设置pred的后继为当前节点, 即newNode前一个节点设置了后继
     pred = newNode;//newNode作为下一个节点的前驱
 }
-//在经过上面的循环后，此时pred=newNode，参数集合的头部已经连接进原链表中，但是尾部还没有连接进原链表中
+//在经过上面的循环后, 此时pred=newNode, 参数集合的头部已经连接进原链表中, 但是尾部还没有连接进原链表中
 if (succ == null) {
-    last = pred;// 如果在表尾插入，则设置newNode为尾结点
-} else {//否则 newNode的后继设置为succ，并吧succ的前驱设置为newNode,这样参数集合的尾部也连接进原链表中
+    last = pred;// 如果在表尾插入, 则设置newNode为尾结点
+} else {//否则 newNode的后继设置为succ, 并吧succ的前驱设置为newNode,这样参数集合的尾部也连接进原链表中
     pred.next = succ;
     succ.prev = pred;
 }
 size += numNew;//长度增加 numNew
 modCount++;
 return true;</code></pre><p>}</p>
-<p>//<span id="f19">所有表中所有元素，此列表为空</span><br>public void clear() {</p>
-<pre><code>//从first节点开始，依次清空每个节点。
-//x不在for()中设置为next,而是在循环体中设置为next,是因为方法体执行完后，x.next=null了
+<p>//<span id="f19">所有表中所有元素, 此列表为空</span><br>public void clear() {</p>
+<pre><code>//从first节点开始, 依次清空每个节点。
+//x不在for()中设置为next,而是在循环体中设置为next,是因为方法体执行完后, x.next=null了
 for (Node&lt;E&gt; x = first; x != null; ) {
     Node&lt;E&gt; next = x.next;
     x.item = null;
@@ -518,8 +530,8 @@ for (Node&lt;E&gt; x = first; x != null; ) {
 first = last = null;
 size = 0;
 modCount++;</code></pre><p>}<br>//<span id="f20">返回指点索引的非空节点</span><br>Node<e> node(int index) {</e></p>
-<pre><code>//此处查询进行了优化，每次只要查询列表的一半
-//size右移1位，变为size的一半，在列表的前半段查询
+<pre><code>//此处查询进行了优化, 每次只要查询列表的一半
+//size右移1位, 变为size的一半, 在列表的前半段查询
 if (index &lt; (size &gt;&gt; 1)) {
     Node&lt;E&gt; x = first;
     for (int i = 0; i &lt; index; i++)
@@ -531,9 +543,9 @@ if (index &lt; (size &gt;&gt; 1)) {
         x = x.prev;
     return x;
 }</code></pre><p>}<br>//<span id="f21">返回指定索引节点的值</span><br>public E get(int index) {</p>
-<pre><code>checkElementIndex(index);//判断index是否越界，越界则抛出异常，0 &lt;= index &lt; size
+<pre><code>checkElementIndex(index);//判断index是否越界, 越界则抛出异常, 0 &lt;= index &lt; size
 return node(index).item;</code></pre><p>}</p>
-<p>//<span id="f22">替换指定位置节点的值，返回旧值</span><br>public E set(int index, E element) {</p>
+<p>//<span id="f22">替换指定位置节点的值, 返回旧值</span><br>public E set(int index, E element) {</p>
 <pre><code>checkElementIndex(index);
 Node&lt;E&gt; x = node(index);//获取index位置的节点
 E oldVal = x.item;
@@ -545,15 +557,15 @@ if (index == size)//在表尾添加
 else
     linkBefore(element, node(index));//在index节点前添加</code></pre><p>}<br>// <span id="f24">获取头节点的值</span><br>public E peek() {</p>
 <pre><code>final Node&lt;E&gt; f = first;
-return (f == null) ? null : f.item;</code></pre><p>}<br>// <span id="f25">获取头节点的值，同时删除该头节点</span><br>public E poll() {</p>
+return (f == null) ? null : f.item;</code></pre><p>}<br>// <span id="f25">获取头节点的值, 同时删除该头节点</span><br>public E poll() {</p>
 <pre><code>final Node&lt;E&gt; f = first;
-return (f == null) ? null : unlinkFirst(f);</code></pre><p>}<br>//<span id="f26">入栈</span><br>public void push(E e) {<br>&emsp;&emsp;addFirst(e);<br>}<br>//<span id="f27">出栈</span><br>public E pop() {<br>&emsp;&emsp;return removeFirst();<br>}<br>//<span id="f28">转为数组，就是新建个数组，然后把链表中值一个个加到数组中，返回的是Object类型数组</span><br>public Object[] toArray() {</p>
+return (f == null) ? null : unlinkFirst(f);</code></pre><p>}<br>//<span id="f26">入栈</span><br>public void push(E e) {<br>&emsp;&emsp;addFirst(e);<br>}<br>//<span id="f27">出栈</span><br>public E pop() {<br>&emsp;&emsp;return removeFirst();<br>}<br>//<span id="f28">转为数组, 就是新建个数组, 然后把链表中值一个个加到数组中, 返回的是Object类型数组</span><br>public Object[] toArray() {</p>
 <pre><code>Object[] result = new Object[size];
 int i = 0;
 for (Node&lt;E&gt; x = first; x != null; x = x.next)
     result[i++] = x.item;
-return result;</code></pre><p>}<br>//<span id="f29">转为数组，传入T类型的数组，返回T类型的数组</span><br>public <t> T[] toArray(T[] a) {</t></p>
-<pre><code>// 如果传入的a比链表小，则反射生成一个和链表一样大的数组
+return result;</code></pre><p>}<br>//<span id="f29">转为数组, 传入T类型的数组, 返回T类型的数组</span><br>public <t> T[] toArray(T[] a) {</t></p>
+<pre><code>// 如果传入的a比链表小, 则反射生成一个和链表一样大的数组
 if (a.length &lt; size)
     a = (T[])java.lang.reflect.Array.newInstance(
                         a.getClass().getComponentType(), size);
@@ -561,12 +573,12 @@ int i = 0;
 Object[] result = a;
 for (Node&lt;E&gt; x = first; x != null; x = x.next)
     result[i++] = x.item;
-//如果数组比链表大，则a[size]设为null, a[size]后的值不变
+//如果数组比链表大, 则a[size]设为null, a[size]后的值不变
 if (a.length &gt; size)
     a[size] = null;
 return a;</code></pre><p>}</p>
-<p>linkedList中维护一个ListItr类，这个类实现了ListIterator，通过new LinkedList.listIterator()<br>或new LinkedList.listIterator(int index)来获取ListIterator迭代器,这里就不再讲了。</p>
-<p>网上有人对LinkedList和ArrayList进行了一些实验，比较它们不同操作下的性能，大家可以看一看：<br><a href="https://blog.csdn.net/u011676300/article/details/80440774" target="_blank" rel="noopener">https://blog.csdn.net/u011676300/article/details/80440774</a></p>
+<p>linkedList中维护一个ListItr类, 这个类实现了ListIterator, 通过new LinkedList.listIterator()<br>或new LinkedList.listIterator(int index)来获取ListIterator迭代器,这里就不再讲了。</p>
+<p>网上有人对LinkedList和ArrayList进行了一些实验, 比较它们不同操作下的性能, 大家可以看一看：<br><a href="https://blog.csdn.net/u011676300/article/details/80440774" target="_blank" rel="noopener">https://blog.csdn.net/u011676300/article/details/80440774</a></p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，可以在下面评论区评论，也可以邮件至 18094277275@163.com </span>
@@ -655,7 +667,7 @@ return a;</code></pre><p>}</p>
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#程序人生','#java','#java，linkedList',],
+            'data': ['#程序人生','#java','#ArrayList 源码','#java  linkedList',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
