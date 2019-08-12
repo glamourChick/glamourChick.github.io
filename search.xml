@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>关键字static</title>
+      <link href="/2019/08/12/%E5%85%B3%E9%94%AE%E5%AD%97static/"/>
+      <url>/2019/08/12/%E5%85%B3%E9%94%AE%E5%AD%97static/</url>
+      
+        <content type="html"><![CDATA[<p>static: 可以修饰变量，方法，静态块，静态内部类，静态导包</p><p>静态变量：类变量，即该变量属于类本身，所有实例对象共享，可通过 类.变量 的方式直接获取，无需创建实例对象。<br>静态方法：该方法属于类本身，也不需要实例对象就可获取，所有实例对象共享。<br>静态代码块：属于类本身，类加载时初始。<br>静态内部类：static修饰类只有静态内部类这种情况，<br>静态导包：这个是JDK1.5之后的新特性，import static这两个关键字连用可以指定导入某个类中的指定静态资源。<br>注意：因为类加载机制的原因，静态方法不能访问非静态资源，因为静态方法在类加载时初始化，而非静态资源则是在创建对象实例时才初始化，这个顺序导致静态方法不能访问非静态资源，而非静态则可以调用静态的。</p><p>下面来个例子：</p><pre><code>import static java.lang.System.out;public class StaticDemo {    //成员变量    private String name;    //静态变量    private static int age = 25;    public static void getField(){        System.out.println(&quot;age:&quot; + age);        //静态方法中用成员变量会报：不能调用非静态属性的        //System.out.println(&quot;name:&quot; + name);    }    static {        System.out.println(&quot;静态代码块&quot;);    }    static class internalClass{        public void show(){            System.out.println(&quot;静态内部类方法 show&quot;);        }    }    public static void main(String [] args){        //因为已经静态导包，所以可以这样用        out.println(123);        System.out.println(&quot;类.静态变量方式调用：&quot;+ StaticDemo.age);        System.out.println(&quot;类.静态方法方式调用：&quot;);        StaticDemo.getField();        StaticDemo.internalClass obj = new internalClass();        System.out.println(&quot;内部类show方法：&quot;);        obj.show();    }}</code></pre><p>输出：<br>静态代码块<br>123<br>类.静态变量方式调用：25<br>类.静态方法方式调用：<br>age:25<br>内部类show方法：<br>静态内部类方法 show</p><p>ps：<a href="https://glamourchick.github.io/2019/08/04/%E7%AE%80%E8%BF%B0%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" target="_blank" rel="noopener">有点懵的话可以看类加载机制那节哦^v^</a></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> static </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>ArrayList源码解析</title>
       <link href="/2019/08/11/ArrayList%E6%BA%90%E7%A0%81%E7%AE%80%E6%9E%90/"/>
       <url>/2019/08/11/ArrayList%E6%BA%90%E7%A0%81%E7%AE%80%E6%9E%90/</url>
